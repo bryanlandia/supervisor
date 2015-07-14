@@ -2,6 +2,9 @@ supervisor Cookbook CHANGELOG
 =============================
 This file is used to list changes made in each version of the supervisor cookbook.
 
+v0.4.13
+-------
+- Add support for Supervisor eventlisteners such as memmon
 
 v0.4.10
 -------

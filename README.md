@@ -42,6 +42,19 @@ Attributes
 	node.default['supervisor']['ctlplugins'] = ({
 	 'serialrestart'=> 'supervisorserialrestart.controllerplugin:make_serialrestart_controllerplugin'
      })
+- `node['supervisor']['eventlisteners']` - entries for `supervisorctl` event listeners.
+  For instance, to use [superlance's memmon lisener](https://pypi.python.org/pypi/superlance), you'd manually add this to your config:
+
+    ```text
+    [eventlistener:memmon]
+    command=memmon -g bar=200MB -m bob@example.com
+    events=TICK_60
+  ```
+  Which can be achieved using
+    ```ruby
+  node.default['supervisor']['eventlisteners'] = ({
+   'memmon'=> 'command=memmon -g bar=200MB -m bob@example.com\nevents=TICK_60'
+     })     
 	 ```
 
 

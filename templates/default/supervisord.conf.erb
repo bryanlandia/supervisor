@@ -58,5 +58,11 @@ serverurl=unix:///var/run//supervisor.sock ; use a unix:// URL  for a unix socke
 
 <%end%>
 
+<% @node['supervisor']['eventlisteners'] && @node['supervisor']['eventlisteners'].each do |k,v| %>
+[eventlistener:<%=k%>]
+<%=v%>
+
+<%end%>
+
 [include]
 files = <%= @node['supervisor']['dir'] %>/*.conf
